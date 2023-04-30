@@ -1,0 +1,22 @@
+<h1>Chat App</h1>
+<form (ngSubmit)="formSubmit()">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      [(ngModel)]="name"
+    />
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      class="form-control"
+      [(ngModel)]="password"
+    />
+  </div>
+  <button type="submit" class="btn-default btn">Login</button>
+</form>

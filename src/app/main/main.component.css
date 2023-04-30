@@ -1,0 +1,82 @@
+/* Buttons */
+.btn {
+  width: 40%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 18px 0;
+  margin-left: 30%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout {
+  width: 40%;
+  background-color: #5e695f;
+  color: white;
+  padding: 14px 20px;
+  margin: 18px 0;
+  margin-left: 30%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-details {
+  width: auto;
+  padding: 8px 12px;
+  font-size: 14px;
+  float: left;
+  margin-top: -40px;
+  margin-left: 210px;
+  background-color: #4caf50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Student information */
+.student-info {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+
+.student-info p {
+  margin: 0;
+}
+
+/* Student information */
+.student-container {
+  position: relative;
+}
+
+.student-info {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.student-info p {
+  margin: 0;
+}
+
+.knt {
+  margin-left: 20%;
+  margin-bottom: 10px;
+  width: fit-content;
+  border: #4caf50 solid 2px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+}
