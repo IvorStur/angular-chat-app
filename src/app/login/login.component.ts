@@ -20,12 +20,16 @@ export class LoginComponent implements OnInit {
 
   formSubmit() {
     this.http.get('https://dummyjson.com/users').subscribe(res => {
-    console.log('res', res)
-  })
+      for (const user of res["users"]) {
 
-    if (this.password == 'admin42') {
-      localStorage.setItem('logged', 'true');
-      this.router.navigate(['two', 365]);
-    }
+        if (user.firstName == this.name && user.lastName == this.password) {
+          localStorage.setItem('logged', 'true');
+          this.router.navigate(['two', 365]);
+        }
+        
+      }
+    });
+
+    
   }
 }
