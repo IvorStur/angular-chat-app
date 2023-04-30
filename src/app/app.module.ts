@@ -12,9 +12,10 @@ import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { StudentService } from './services/student.service';
 import { EditComponent } from './edit/edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule, HttpClientModule],
   declarations: [
     AppComponent,
     HelloComponent,
