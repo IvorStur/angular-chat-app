@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
 
   lName: string;
   fName: string;
+  user: UserService["user"];
 
   constructor(private router: Router, private studentService: StudentService, private userService: UserService) {}
 
