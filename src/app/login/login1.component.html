@@ -1,21 +1,21 @@
 <h1>Chat App</h1>
 <form (ngSubmit)="formSubmit()">
   <div class="form-group">
-    <label for="name">Name:</label>
+    <label for="fname">Name:</label>
     <input
       type="text"
-      name="name"
-      id="name"
+      name="fname"
+      id="fname"
       class="form-control"
-      [(ngModel)]="name"
+      [(ngModel)]="fname"
     />
-    <label for="password">Password:</label>
+    <label for="lname">Password:</label>
     <input
-      type="password"
-      name="password"
-      id="password"
+      type="text"
+      name="lName"
+      id="lName"
       class="form-control"
-      [(ngModel)]="password"
+      [(ngModel)]="lName"
     />
   </div>
   <button type="submit" class="btn-default btn">Login</button>

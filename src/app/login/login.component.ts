@@ -15,14 +15,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  password: string;
-  name: string;
+  lName: string;
+  fname: string;
 
   formSubmit() {
     this.http.get('https://dummyjson.com/users').subscribe(res => {
+      // Marcel Jones
       for (const user of res["users"]) {
 
-        if (user.firstName == this.name && user.lastName == this.password) {
+        if (user.firstName == this.fname && user.lastName == this.lName) {
           localStorage.setItem('logged', 'true');
           this.router.navigate(['two', 365]);
         }
