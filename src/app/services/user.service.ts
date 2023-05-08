@@ -15,6 +15,14 @@ interface User {
 export class UserService {
   user: User;
 
+  addUser(user: User) {
+    this.user = user;
+  }
+
+  getUser() {
+    return this.user;
+  }
+
   constructor() { }
 
 }

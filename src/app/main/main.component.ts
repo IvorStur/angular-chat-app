@@ -16,7 +16,9 @@ export class MainComponent implements OnInit {
   fName: string;
   user: UserService["user"];
 
-  constructor(private router: Router, private studentService: StudentService, private userService: UserService) {}
+  constructor(private router: Router, private studentService: StudentService, private userService: UserService) {
+    this.user = userService.getUser();
+  }
 
 
   ngOnInit() {
