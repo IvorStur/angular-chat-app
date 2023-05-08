@@ -35,12 +35,14 @@ export class LoginComponent implements OnInit {
       for (const user of res["users"]) {
 
         if (user.firstName == this.fname && user.lastName == this.lName) {
-          this.loggedUser.fName = this.fname;
-          this.loggedUser.lName = this.lName;
-          this.loggedUser.logInTime = new Date();
-          this.loggedUser.clicks = 0;
-          this.loggedUser.char = 0;
-          this.loggedUser.chats = 0;
+          this.loggedUser = {
+            fName: this.fname,
+            lName: this.lName,
+            logInTime: new Date(),
+            clicks: 0,
+            char: 0,
+            chats: 0
+          };
 
           this.userService.addUser(this.loggedUser)
 
