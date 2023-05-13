@@ -44,8 +44,7 @@ export class AppComponent {
 
       this.userService.globalClick();
     } catch {}
-    console.log('Clicked on the site!');
-    // Perform any actions you want here
+    
   }
   loginSucces() {
     this.router.navigate(['two', 365]);
