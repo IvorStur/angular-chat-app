@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -11,8 +12,11 @@ export class HeaderComponent implements OnInit {
 
   @Input() fName: string;
   @Input() lName: string;
+  @Input() user: UserService["user"];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { 
+    this.user = userService.getUser();
+  }
 
   ngOnInit() {
   }

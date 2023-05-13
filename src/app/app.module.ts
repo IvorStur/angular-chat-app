@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { GuardGuard } from './guard.guard';
 import { StudentService } from './services/student.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './main/header/header.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule, HttpClientModule],
@@ -17,9 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HelloComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent
   ],
   bootstrap: [AppComponent],
-  providers: [GuardGuard, StudentService],
+  providers: [GuardGuard, StudentService, UserService],
 })
 export class AppModule {}

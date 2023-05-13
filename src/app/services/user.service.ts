@@ -19,6 +19,10 @@ export class UserService {
     this.user = user;
   }
 
+  globalClick() {
+    this.user.clicks++;
+  }
+
   getUser() {
     return this.user;
   }
