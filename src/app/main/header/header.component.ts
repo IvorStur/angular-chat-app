@@ -1,7 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
 
+
+interface User {
+  fName: string;
+  lName: string;
+  logInTime: Date;
+  clicks: number;
+  char: number;
+  chats: number;
+}
 
 @Component({
   selector: 'app-header',
@@ -12,10 +20,10 @@ export class HeaderComponent implements OnInit {
 
   @Input() fName: string;
   @Input() lName: string;
-  @Input() user: UserService["user"];
+  @Input() user: User;
 
-  constructor(private router: Router, private userService: UserService) { 
-    this.user = userService.getUser();
+  constructor(private router: Router) { 
+    // this.user = userService.getUser();
   }
 
   ngOnInit() {

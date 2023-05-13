@@ -28,12 +28,14 @@ export class MainComponent implements OnInit {
   globalClick() {
     // this.user.clicks += 1;
     this.userService.globalClick();
+    this.updateUser();
   }
 
   // Use HostListener to call your function on every click in the application
   @HostListener('click', ['$event'])
   onGlobalClick(event: MouseEvent) {
     this.globalClick();
+
   }
 
 
