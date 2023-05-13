@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
+    userService.click$.subscribe();
   }
   
   updateUser() {
@@ -35,6 +36,8 @@ export class MainComponent implements OnInit {
   @HostListener('click', ['$event'])
   onGlobalClick(event: MouseEvent) {
     this.globalClick();
+    console.log("yo");
+    
 
   }
 

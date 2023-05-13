@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 interface User {
   fName: string;
@@ -14,6 +15,14 @@ interface User {
 })
 export class UserService {
   user: User;
+
+  private click = new Subject<number>();
+  click$ = this.click.asObservable();
+
+  // clicked(click: number) {
+  //   this.click.next(click++);
+  // }
+
 
   addUser(user: User) {
     this.user = user;
