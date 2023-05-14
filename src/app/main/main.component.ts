@@ -12,8 +12,7 @@ import { UserService } from '../services/user.service';
 })
 export class MainComponent implements OnInit {
 
-  lName: string;
-  fName: string;
+  
   user: UserService["user"];
 
   constructor(private router: Router, private userService: UserService) {
@@ -33,13 +32,13 @@ export class MainComponent implements OnInit {
   }
 
   // Use HostListener to call your function on every click in the application
-  @HostListener('click', ['$event'])
-  onGlobalClick(event: MouseEvent) {
-    this.globalClick();
-    console.log("yo");
+  // @HostListener('click', ['$event'])
+  // onGlobalClick(event: MouseEvent) {
+  //   this.globalClick();
+  //   console.log("yo");
     
 
-  }
+  // }
 
 
   ngOnInit() {

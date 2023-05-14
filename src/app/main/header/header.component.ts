@@ -18,8 +18,7 @@ interface User {
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() fName: string;
-  @Input() lName: string;
+  
   @Input() user: User;
 
   constructor(private router: Router) { 
@@ -27,6 +26,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  logout() {
+    localStorage.setItem('logged', 'flase');
+    this.router.navigate(["one"])
   }
   
 

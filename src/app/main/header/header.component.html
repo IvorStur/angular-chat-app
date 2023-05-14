@@ -1,5 +1,11 @@
-<nav>
-  {{ user.fName }}
-  {{ user.lName }}
-  {{ user.clicks }}
-</nav>
+<header>
+  <nav>
+    {{ user.fName }}
+    {{ user.lName }}
+    {{ user.clicks }}
+    {{ user.logInTime | date:'medium' }}
+    <!-- {{ user.logInTime.getMonth() }}
+    {{ user.logInTime.getTime() }} -->
+  </nav>
+  <button (click)="logout()">Logout</button>
+</header>

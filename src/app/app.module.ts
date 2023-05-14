@@ -12,6 +12,7 @@ import { StudentService } from './services/student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './main/header/header.component';
 import { UserService } from './services/user.service';
+import { LeftPartComponent } from './main/left-part/left-part.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule, HttpClientModule],
@@ -20,7 +21,8 @@ import { UserService } from './services/user.service';
     HelloComponent,
     LoginComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    LeftPartComponent
   ],
   bootstrap: [AppComponent],
   providers: [GuardGuard, StudentService, UserService],
