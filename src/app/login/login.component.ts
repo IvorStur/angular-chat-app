@@ -62,22 +62,23 @@ export class LoginComponent implements OnInit {
           this.userService.addUser(this.loggedUser)
           localStorage.setItem('logged', 'true');
         
+        } else {
+          this.allUser = {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            username: user.username,
+            birthdate: user.birthDate,
+            image: user.image,
+            eyeColor: user.eyeColor,
+            university: user.university,
+            macAddress: user.macAddress,
+            ip: user.ip,
+            city: user.address.city,
         }
-        this.allUser = {
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          username: user.username,
-          birthdate: user.birthDate,
-          image: user.image,
-          eyeColor: user.eyeColor,
-          university: user.university,
-          macAddress: user.macAddress,
-          ip: user.ip,
-          city: user.address.city,
+        this.userService.addUsers(this.allUser);
         };
 
-        this.userService.addUsers(this.allUser);
 
 
       }
