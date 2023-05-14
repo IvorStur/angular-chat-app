@@ -35,7 +35,9 @@ export class LoginComponent implements OnInit {
   @Output()
   touch = new EventEmitter();
 
-  constructor(private router: Router, private http: HttpClient, private userService: UserService) {}
+  constructor(private router: Router, private http: HttpClient, private userService: UserService) {
+    userService.deleteAllUsers();
+  }
 
   ngOnInit() {
     this.loggedUser = null;

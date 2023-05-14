@@ -46,6 +46,10 @@ export class UserService {
     return this.allUsers;
   }
 
+  deleteAllUsers() {
+    this.allUsers = [];
+  }
+
 
 
   addUser(user: User) {
