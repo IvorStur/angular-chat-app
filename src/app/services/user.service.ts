@@ -10,11 +10,25 @@ interface User {
   chats: number;
 }
 
+interface allUsers {
+  firstName: string;
+  lastName: string;
+  username: string;
+  birthdate: string;
+  image: string;
+  eyeColor: string;
+  university: string;
+  macAddress: string;
+  ip: string;
+  city: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   user: User;
+  allUsers: allUsers[];
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
@@ -22,6 +36,11 @@ export class UserService {
   // clicked(click: number) {
   //   this.click.next(click++);
   // }
+
+  addUsers(user: allUsers) {
+    this.allUsers.push(user);
+  }
+
 
 
   addUser(user: User) {

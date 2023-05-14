@@ -1,5 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+// interface jsonUsers {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+// }
+
 
 @Component({
   selector: 'app-left-part',
@@ -8,9 +16,24 @@ import { Router } from '@angular/router';
 })
 export class LeftPartComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
+
+  // firstName: string;
+  // lastName: string;
+  // email: string;
+  // jsonUsersList: jsonUsers[];
 
   ngOnInit() {
+    // this.http.get('https://dummyjson.com/users').subscribe(res => {
+    //   // Marcel Jones
+    //   this.jsonUsersList.push(res["users"])
+      
+        
+    //   }
+    // );
   }
+  
+
+  
 
 }

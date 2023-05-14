@@ -43,14 +43,18 @@ export class LoginComponent implements OnInit {
             char: 0,
             chats: 0
           };
-
           this.userService.addUser(this.loggedUser)
+        
+        }
+
+        this.userService.addUsers(user);
+
 
           localStorage.setItem('logged', 'true');
           this.router.navigate(['two', 365]);
         }
         
-      }
+      
     });
 
     
