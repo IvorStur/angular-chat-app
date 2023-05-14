@@ -14,10 +14,12 @@ export class MainComponent implements OnInit {
 
   
   user: UserService["user"];
+  allUsers: UserService["allUsers"];
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
-    userService.click$.subscribe();
+    this.allUsers = userService.getAllUsers();
+    // userService.click$.subscribe();
   }
   
   updateUser() {

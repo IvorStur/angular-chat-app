@@ -12,6 +12,20 @@ interface User {
   chats: number;
 }
 
+interface allUsers {
+  firstName: string;
+  lastName: string;
+  email: string;
+  username: string;
+  birthdate: string;
+  image: string;
+  eyeColor: string;
+  university: string;
+  macAddress: string;
+  ip: string;
+  city: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login1.component.html',
@@ -28,6 +42,8 @@ export class LoginComponent implements OnInit {
   lName: string;
   fname: string;
   loggedUser: User;
+  allUser: allUsers;
+
 
   formSubmit() {
     this.http.get('https://dummyjson.com/users').subscribe(res => {
@@ -44,15 +60,30 @@ export class LoginComponent implements OnInit {
             chats: 0
           };
           this.userService.addUser(this.loggedUser)
+          localStorage.setItem('logged', 'true');
         
         }
+        this.allUser = {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          username: user.username,
+          birthdate: user.birthDate,
+          image: user.image,
+          eyeColor: user.eyeColor,
+          university: user.university,
+          macAddress: user.macAddress,
+          ip: user.ip,
+          city: user.address.city,
+        };
 
-        this.userService.addUsers(user);
+        this.userService.addUsers(this.allUser);
 
 
-          localStorage.setItem('logged', 'true');
-          this.router.navigate(['two', 365]);
-        }
+      }
+      if (this.loggedUser) {
+        this.router.navigate(['two', 365]);
+      }
         
       
     });

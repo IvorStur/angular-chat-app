@@ -13,6 +13,7 @@ interface User {
 interface allUsers {
   firstName: string;
   lastName: string;
+  email: string;
   username: string;
   birthdate: string;
   image: string;
@@ -28,7 +29,7 @@ interface allUsers {
 })
 export class UserService {
   user: User;
-  allUsers: allUsers[];
+  allUsers: allUsers[] = [];
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
@@ -39,6 +40,10 @@ export class UserService {
 
   addUsers(user: allUsers) {
     this.allUsers.push(user);
+  }
+
+  getAllUsers() {
+    return this.allUsers;
   }
 
 
