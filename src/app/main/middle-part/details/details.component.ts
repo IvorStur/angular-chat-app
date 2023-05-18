@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getSingleUser();
-    this.http.get("")
+    // this.http.get("")
 
   }
 

@@ -24,6 +24,7 @@ export class MainComponent implements OnInit {
   }
 
   openDetail(open: boolean) {
+    // console.log("opend details")
     this.detail = open;
   }
   
