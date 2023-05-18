@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './main/header/header.component';
 import { UserService } from './services/user.service';
 import { LeftPartComponent } from './main/left-part/left-part.component';
+import { MiddlePartComponent } from './main/middle-part/middle-part.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule, HttpClientModule],
@@ -22,7 +23,8 @@ import { LeftPartComponent } from './main/left-part/left-part.component';
     LoginComponent,
     MainComponent,
     HeaderComponent,
-    LeftPartComponent
+    LeftPartComponent,
+    MiddlePartComponent
   ],
   bootstrap: [AppComponent],
   providers: [GuardGuard, StudentService, UserService],

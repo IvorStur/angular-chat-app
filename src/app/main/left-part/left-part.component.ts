@@ -24,7 +24,7 @@ interface allUsers {
 })
 export class LeftPartComponent implements OnInit {
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router) { }
 
   toggleButton: boolean = false;
 
