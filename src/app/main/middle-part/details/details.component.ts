@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 
@@ -8,7 +9,7 @@ import { UserService } from '../../../services/user.service';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private http: HttpClient) { }
 
   user: UserService["singleUser"]
   properties: string[] = ["firstName", "lastName", "username", "birthdate", "image", "eyeColor", "university", "macAddress", "ip", "city"];
@@ -17,6 +18,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getSingleUser();
+    this.http.get("")
 
   }
 

@@ -12,19 +12,19 @@ interface User {
   chats: number;
 }
 
-interface allUsers {
-  firstName: string;
-  lastName: string;
-  email: string;
-  username: string;
-  birthdate: string;
-  image: string;
-  eyeColor: string;
-  university: string;
-  macAddress: string;
-  ip: string;
-  city: string;
-}
+// interface allUsers {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   username: string;
+//   birthdate: string;
+//   image: string;
+//   eyeColor: string;
+//   university: string;
+//   macAddress: string;
+//   ip: string;
+//   city: string;
+// }
 
 @Component({
   selector: 'app-login',
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   lName: string;
   fname: string;
   loggedUser: User;
-  allUser: allUsers;
+  allUser: UserService["singleUser"];
 
 
   formSubmit() {
@@ -80,6 +80,7 @@ export class LoginComponent implements OnInit {
             macAddress: user.macAddress,
             ip: user.ip,
             city: user.address.city,
+            postalCode: user.postalCode
         }
         this.userService.addUsers(this.allUser);
         };

@@ -3,19 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
-interface allUsers {
-  firstName: string;
-  lastName: string;
-  email: string;
-  username: string;
-  birthdate: string;
-  image: string;
-  eyeColor: string;
-  university: string;
-  macAddress: string;
-  ip: string;
-  city: string;
-}
+
 
 
 @Component({
@@ -31,13 +19,14 @@ export class LeftPartComponent implements OnInit {
   toggle: boolean[] = [];  
   @Output() detailEmit = new EventEmitter<boolean>();
 
-  @Input() allUsers: allUsers[];
+  allUsers: UserService["allUsers"];
 
   ngOnInit() {
+    this.allUsers = this.userService.getAllUsers();
     this.initializeToggleArray();
   }
 
-  detail(user: allUsers) {
+  detail(user: UserService["singleUser"]) {
     this.userService.addSingleUser(user);
     this.detailEmit.emit(true);
 

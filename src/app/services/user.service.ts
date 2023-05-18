@@ -22,6 +22,7 @@ interface allUsers {
   macAddress: string;
   ip: string;
   city: string;
+  postalCode: string;
 }
 
 @Injectable({

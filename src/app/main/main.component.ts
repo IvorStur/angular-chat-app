@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
-    this.allUsers = userService.getAllUsers();
+    // this.allUsers = userService.getAllUsers();
     // userService.click$.subscribe();
   }
 
@@ -37,15 +37,6 @@ export class MainComponent implements OnInit {
     this.userService.globalClick();
     this.updateUser();
   }
-
-  // Use HostListener to call your function on every click in the application
-  // @HostListener('click', ['$event'])
-  // onGlobalClick(event: MouseEvent) {
-  //   this.globalClick();
-  //   console.log("yo");
-    
-
-  // }
 
 
   ngOnInit() {
