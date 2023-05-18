@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -15,6 +15,12 @@ export class DetailsComponent implements OnInit {
   properties: string[] = ["firstName", "lastName", "username", "birthdate", "image", "eyeColor", "university", "macAddress", "ip", "city"];
   genderString: string = "https://api.genderize.io?name=";
   postalcodeString: string = "https://api.zippopotam.us/us/";
+  @Output() detailEmit = new EventEmitter<boolean>();
+
+  close() {
+    console.log('detail closed')
+    this.detailEmit.emit(false);
+  }
 
   ngOnInit() {
     this.user = this.userService.getSingleUser();
