@@ -15,6 +15,8 @@ import { UserService } from './services/user.service';
 import { LeftPartComponent } from './main/left-part/left-part.component';
 import { MiddlePartComponent } from './main/middle-part/middle-part.component';
 import { RightPartComponent } from './main/right-part/right-part.component';
+import { DetailsComponent } from './main/middle-part/details/details.component';
+import { HistoryComponent } from './main/middle-part/history/history.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule, HttpClientModule],
@@ -26,7 +28,9 @@ import { RightPartComponent } from './main/right-part/right-part.component';
     HeaderComponent,
     LeftPartComponent,
     MiddlePartComponent,
-    RightPartComponent
+    RightPartComponent,
+    DetailsComponent,
+    HistoryComponent
   ],
   bootstrap: [AppComponent],
   providers: [GuardGuard, StudentService, UserService],
