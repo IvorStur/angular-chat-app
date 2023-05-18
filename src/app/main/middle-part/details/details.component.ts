@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
   @Output() detailEmit = new EventEmitter<boolean>();
 
   close() {
-    console.log('detail closed')
+    // console.log('detail closed')
     this.detailEmit.emit(false);
   }
 

@@ -12,7 +12,7 @@ export class MiddlePartComponent implements OnInit {
   @Output() detailEmit = new EventEmitter<boolean>();
 
   openDetail(open: boolean) {
-    console.log("middle toggled")
+    // console.log("middle toggled")
     // console.log("opend details")
     this.detailEmit.emit(open);
   }
