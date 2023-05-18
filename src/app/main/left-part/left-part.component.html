@@ -3,7 +3,7 @@
     {{ user.firstName }}
     {{ user.lastName }}
     {{ user.email }}
-    <button *ngIf="toggle[i]">Zobraz detail</button>
+    <button *ngIf="toggle[i]" (click)="detail(user)">Zobraz detail</button>
     <button *ngIf="toggle[i]">Začni chat</button>
   </div>
 </div>

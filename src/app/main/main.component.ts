@@ -12,14 +12,19 @@ import { UserService } from '../services/user.service';
 })
 export class MainComponent implements OnInit {
 
-  
+  detail: boolean = false;
   user: UserService["user"];
   allUsers: UserService["allUsers"];
+  
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
     this.allUsers = userService.getAllUsers();
     // userService.click$.subscribe();
+  }
+
+  openDetail($event) {
+    this.detail = !this.detail;
   }
   
   updateUser() {

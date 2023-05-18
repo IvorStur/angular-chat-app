@@ -17,6 +17,7 @@ export class AppComponent {
 
   ngOnInit() {
     localStorage.setItem('logged', 'false');
+    localStorage.setItem('detail', 'false');
     // localStorage.setItem('id', '0');
     // this.studentService.addStudent({
     //   id: 0,

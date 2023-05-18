@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 interface allUsers {
   firstName: string;
@@ -24,27 +25,24 @@ interface allUsers {
 })
 export class LeftPartComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
-  toggleButton: boolean = false;
+  // detailToggle: boolean = true;
+  toggle: boolean[] = [];  
+  @Output() detailEmit = new EventEmitter<boolean>();
 
-  // firstName: string;
-  // lastName: string;
-  // email: string;
-  // jsonUsersList: jsonUsers[];
   @Input() allUsers: allUsers[];
 
   ngOnInit() {
     this.initializeToggleArray();
-    // this.http.get('https://dummyjson.com/users').subscribe(res => {
-    //   // Marcel Jones
-    //   this.jsonUsersList.push(res["users"])
-      
-        
-    //   }
-    // );
   }
-  toggle: boolean[] = [];
+
+  detail(user: allUsers) {
+    this.userService.addSingleUser(user);
+    this.detailEmit.emit(true);
+
+  }
+  
 
 // Populate the toggle array with initial values
   initializeToggleArray(): void {

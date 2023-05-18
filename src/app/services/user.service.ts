@@ -30,6 +30,7 @@ interface allUsers {
 export class UserService {
   user: User;
   allUsers: allUsers[] = [];
+  singleUser: allUsers;
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
@@ -37,6 +38,13 @@ export class UserService {
   // clicked(click: number) {
   //   this.click.next(click++);
   // }
+  addSingleUser(user: allUsers) {
+    this.singleUser = user;
+  }
+
+  getSingleUser() {
+    return this.singleUser;
+  }
 
   addUsers(user: allUsers) {
     this.allUsers.push(user);

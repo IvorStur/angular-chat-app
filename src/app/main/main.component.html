@@ -1,3 +1,4 @@
 <!-- {{user.fName}} -->
 <app-header [user]="user"></app-header>
-<app-left-part [allUsers]="allUsers"></app-left-part>
+<app-left-part [allUsers]="allUsers" (detailEmit)="openDetail"></app-left-part>
+<app-middle-part [detail]="detail"></app-middle-part>
