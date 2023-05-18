@@ -23,8 +23,8 @@ export class MainComponent implements OnInit {
     // userService.click$.subscribe();
   }
 
-  openDetail($event) {
-    this.detail = !this.detail;
+  openDetail(open: boolean) {
+    this.detail = open;
   }
   
   updateUser() {
