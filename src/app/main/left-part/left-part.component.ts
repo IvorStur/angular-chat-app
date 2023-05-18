@@ -26,6 +26,8 @@ export class LeftPartComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) { }
 
+  toggleButton: boolean = false;
+
   // firstName: string;
   // lastName: string;
   // email: string;
@@ -33,6 +35,7 @@ export class LeftPartComponent implements OnInit {
   @Input() allUsers: allUsers[];
 
   ngOnInit() {
+    this.initializeToggleArray();
     // this.http.get('https://dummyjson.com/users').subscribe(res => {
     //   // Marcel Jones
     //   this.jsonUsersList.push(res["users"])
@@ -41,6 +44,15 @@ export class LeftPartComponent implements OnInit {
     //   }
     // );
   }
+  toggle: boolean[] = [];
+
+// Populate the toggle array with initial values
+  initializeToggleArray(): void {
+  this.allUsers.forEach(() => {
+    this.toggle.push(false);
+  });
+}
+
   
 
   
