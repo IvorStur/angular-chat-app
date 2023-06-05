@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
     'lastName',
     'username',
     'birthdate',
-    'image',
+    // 'image',
     'eyeColor',
     'university',
     'macAddress',
