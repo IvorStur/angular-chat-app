@@ -1,0 +1,17 @@
+<div *ngIf="user">
+  {{ user['firstName'] }}
+  {{ user['lastName'] }}
+</div>
+<form (ngSubmit)="formSubmit()">
+  <div class="form-group">
+    <label for="fname">Name:</label>
+    <input
+      type="text"
+      name="text"
+      id="text"
+      class="form-control"
+      [(ngModel)]="text"
+    />
+  </div>
+  <button type="submit" class="">Send</button>
+</form>

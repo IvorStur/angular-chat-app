@@ -4,6 +4,6 @@
     {{ user.lastName }}
     {{ user.email }}
     <button *ngIf="toggle[i]" (click)="detail(user)">Zobraz detail</button>
-    <button *ngIf="toggle[i]">Začni chat</button>
+    <button *ngIf="toggle[i]" (click)="chat(user)">Začni chat</button>
   </div>
 </div>

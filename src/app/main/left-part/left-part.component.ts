@@ -31,6 +31,10 @@ export class LeftPartComponent implements OnInit {
     this.detailEmit.emit(true);
 
   }
+
+  chat(user: UserService["singleUser"]) {
+    this.userService.beginChat(user);
+  }
   
 
 // Populate the toggle array with initial values

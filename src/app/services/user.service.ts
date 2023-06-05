@@ -11,6 +11,7 @@ interface User {
 }
 
 interface allUsers {
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -34,13 +35,20 @@ export class UserService {
   allUsers: allUsers[] = [];
   singleUser: allUsers;
   testUser: Subject<allUsers> = new Subject<allUsers>();
+  activeChat: Subject<allUsers> = new Subject<allUsers>();
+  history: {
+    firstName: allUsers['firstName'];
+    lastName: allUsers['lastName'];
+    conversation: string[];
+  }[] = [];
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
 
-  // clicked(click: number) {
-  //   this.click.next(click++);
-  // }
+  beginChat(user: allUsers) {
+    this.activeChat.next(user);
+  }
+
   addSingleUser(user: allUsers) {
     this.singleUser = user;
     this.testUser.next(user);
@@ -49,6 +57,10 @@ export class UserService {
   getSingleUser() {
     return this.singleUser;
   }
+
+  // getHistory() {
+  //   return this.history;
+  // }
 
   addUsers(user: allUsers) {
     this.allUsers.push(user);

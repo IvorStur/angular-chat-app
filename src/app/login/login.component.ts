@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
         
         } else {
           this.allUser = {
+            id: user.id,
             firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
