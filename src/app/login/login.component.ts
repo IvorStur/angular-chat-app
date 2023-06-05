@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
             macAddress: user.macAddress,
             ip: user.ip,
             city: user.address.city,
-            postalCode: user.postalCode
+            postalCode: user.address.postalCode
         }
         this.userService.addUsers(this.allUser);
         };

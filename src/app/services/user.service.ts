@@ -33,6 +33,7 @@ export class UserService {
   user: User;
   allUsers: allUsers[] = [];
   singleUser: allUsers;
+  testUser: Subject<allUsers> = new Subject<allUsers>();
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
@@ -42,6 +43,7 @@ export class UserService {
   // }
   addSingleUser(user: allUsers) {
     this.singleUser = user;
+    this.testUser.next(user);
   }
 
   getSingleUser() {
@@ -60,8 +62,6 @@ export class UserService {
     this.allUsers = [];
   }
 
-
-
   addUser(user: User) {
     this.user = user;
   }
@@ -74,6 +74,5 @@ export class UserService {
     return this.user;
   }
 
-  constructor() { }
-
+  constructor() {}
 }
