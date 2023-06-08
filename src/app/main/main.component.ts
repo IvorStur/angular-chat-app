@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   detail: boolean = false;
   user: UserService['user'];
   allUsers: UserService['allUsers'];
-  activeChatBoolean: boolean = false;
+  activeChat: UserService['singleUser'];
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
@@ -36,8 +36,8 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.testUser.subscribe((res: UserService['singleUser']) => {
-      this.activeChatBoolean = true;
+    this.userService.activeChat.subscribe((res: UserService['singleUser']) => {
+      this.activeChat = res;
     });
   }
 }
