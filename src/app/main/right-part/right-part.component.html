@@ -2,9 +2,9 @@
   {{ user['firstName'] }}
   {{ user['lastName'] }}
 </div>
-<form (ngSubmit)="formSubmit()">
+<form (ngSubmit)="formSubmit()" class="d-inline">
   <div class="form-group">
-    <label for="fname">Name:</label>
+    <label for="fname"></label>
     <input
       type="text"
       name="text"
@@ -13,5 +13,5 @@
       [(ngModel)]="text"
     />
   </div>
-  <button type="submit" class="">Send</button>
+  <button type="submit" class="btn btn-primary">Send</button>
 </form>

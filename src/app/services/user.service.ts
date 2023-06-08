@@ -1,3 +1,4 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -28,9 +29,8 @@ interface allUsers {
 }
 
 class History {
-  firstName: string;
-  lastName: string;
-  conversation: {username: string, message: string}[];
+  user: allUsers;
+  conversation: { messageUser: string; message: string }[];
 }
 
 @Injectable({
@@ -43,8 +43,7 @@ export class UserService {
   testUser: Subject<allUsers> = new Subject<allUsers>();
   activeChat: Subject<allUsers> = new Subject<allUsers>();
   historyList: History[] = [];
-  historyActiveUser: string;
-  
+  historyActiveUser: allUsers;
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
@@ -53,21 +52,39 @@ export class UserService {
     this.activeChat.next(user);
   }
 
-  historyMessage(firstName: string, lastName: string, username: string, message: string) {
-    if (this.historyActiveUser == firstName + lastName) {
-      
-      this.historyList[this.historyList.length - 1].conversation.push({username, message})
-    }
-    else {
-      this.historyActiveUser = firstName + lastName
+  historyMessage(messageUser: allUsers, message: string) {
+    try {
+      this.historyActiveUser;
+    } catch {
+      this.historyActiveUser = messageUser;
       let hist = new History();
-      hist.firstName = firstName
-      hist.lastName = lastName
-      hist.conversation.push({username, message})
-      this.historyList.push(hist)
+      hist.user = messageUser;
+      hist.conversation = [];
 
+      hist.conversation.push({
+        messageUser: messageUser['username'],
+        message: message,
+      });
+      this.historyList.push(hist);
     }
-    
+    if (this.historyActiveUser == messageUser) {
+      this.historyList[this.historyList.length - 1].conversation.push({
+        messageUser: messageUser['username'],
+        message: message,
+      });
+    } else {
+      this.historyActiveUser = messageUser;
+      let hist = new History();
+      hist.user = messageUser;
+      hist.conversation = [];
+
+      hist.conversation.push({
+        messageUser: messageUser['username'],
+        message: message,
+      });
+      this.historyList.push(hist);
+    }
+    console.log(this.historyList);
   }
 
   addSingleUser(user: allUsers) {
