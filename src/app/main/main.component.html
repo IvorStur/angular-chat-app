@@ -3,4 +3,4 @@
 <app-left-part (detailEmit)="openDetail($event)"></app-left-part>
 <app-middle-part [detail]="detail" (detailEmit)="openDetail($event)"></app-middle-part>
 <br><br>
-<app-right-part></app-right-part>
+<app-right-part *ngIf="activeChatBoolean"></app-right-part>

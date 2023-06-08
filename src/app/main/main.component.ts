@@ -3,19 +3,16 @@ import { Router } from '@angular/router';
 import { StudentService } from '../services/student.service';
 import { UserService } from '../services/user.service';
 
-
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-
   detail: boolean = false;
-  user: UserService["user"];
-  allUsers: UserService["allUsers"];
-  
+  user: UserService['user'];
+  allUsers: UserService['allUsers'];
+  activeChatBoolean: boolean = false;
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
@@ -27,10 +24,9 @@ export class MainComponent implements OnInit {
     // console.log("opend details")
     this.detail = open;
   }
-  
+
   updateUser() {
     this.user = this.userService.getUser();
-
   }
 
   globalClick() {
@@ -39,9 +35,9 @@ export class MainComponent implements OnInit {
     this.updateUser();
   }
 
-
   ngOnInit() {
+    this.userService.testUser.subscribe((res: UserService['singleUser']) => {
+      this.activeChatBoolean = true;
+    });
   }
-
-  
 }
