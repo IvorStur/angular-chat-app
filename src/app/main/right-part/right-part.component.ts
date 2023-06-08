@@ -19,7 +19,7 @@ export class RightPartComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.testUser.subscribe((res: UserService['singleUser']) => {
+    this.userService.activeChat.subscribe((res: UserService['singleUser']) => {
       this.user = res;
     });
   }
