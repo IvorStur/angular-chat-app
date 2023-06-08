@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -12,7 +13,7 @@ export class RightPartComponent implements OnInit {
   text: string;
   user: UserService["singleUser"]
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private http: HttpClient) { }
 
   ngOnInit() {
     this.userService.testUser.subscribe((res: UserService['singleUser']) => {

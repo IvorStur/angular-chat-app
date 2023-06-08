@@ -27,6 +27,12 @@ interface allUsers {
   postalCode: string;
 }
 
+class History {
+  firstName: string;
+  lastName: string;
+  conversation: {username: string}[];
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -36,17 +42,32 @@ export class UserService {
   singleUser: allUsers;
   testUser: Subject<allUsers> = new Subject<allUsers>();
   activeChat: Subject<allUsers> = new Subject<allUsers>();
-  history: {
-    firstName: allUsers['firstName'];
-    lastName: allUsers['lastName'];
-    conversation: string[];
-  }[] = [];
+  historyList: History[] = [];
+  historyActiveUser: string;
+  
 
   private click = new Subject<number>();
   click$ = this.click.asObservable();
 
   beginChat(user: allUsers) {
     this.activeChat.next(user);
+  }
+
+  historyMessage(firstName: string, lastName: string, username: string, message: string) {
+    if (this.historyActiveUser == firstName + lastName) {
+      let mes = {username: message}
+      this.historyList[this.historyList.length - 1].conversation.push(mes)
+    }
+    else {
+      this.historyActiveUser = firstName + lastName
+      let hist = new History();
+      hist.firstName = firstName
+      hist.lastName = lastName
+      hist.conversation.push({username: message})
+      this.historyList.push(hist)
+
+    }
+    
   }
 
   addSingleUser(user: allUsers) {
