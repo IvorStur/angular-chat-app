@@ -30,7 +30,7 @@ interface allUsers {
 class History {
   firstName: string;
   lastName: string;
-  conversation: {username: string}[];
+  conversation: {username: string, message: string}[];
 }
 
 @Injectable({
@@ -55,15 +55,15 @@ export class UserService {
 
   historyMessage(firstName: string, lastName: string, username: string, message: string) {
     if (this.historyActiveUser == firstName + lastName) {
-      let mes = {username: message}
-      this.historyList[this.historyList.length - 1].conversation.push(mes)
+      
+      this.historyList[this.historyList.length - 1].conversation.push({username, message})
     }
     else {
       this.historyActiveUser = firstName + lastName
       let hist = new History();
       hist.firstName = firstName
       hist.lastName = lastName
-      hist.conversation.push({username: message})
+      hist.conversation.push({username, message})
       this.historyList.push(hist)
 
     }
