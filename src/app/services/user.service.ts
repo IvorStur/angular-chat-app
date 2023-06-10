@@ -53,23 +53,11 @@ export class UserService {
   }
 
   historyMessage(messageUser: allUsers, message: string) {
-    if (this.historyActiveUser == messageUser) {
-      try {
-        this.historyList[this.historyList.length - 1].conversation.push({
-          messageUser: messageUser['username'],
-          message: message,
-        });
-      } catch {
-        let hist = new History();
-        hist.user = messageUser;
-        hist.conversation = [];
-
-        hist.conversation.push({
-          messageUser: messageUser['username'],
-          message: message,
-        });
-        this.historyList.push(hist);
-      }
+    if (this.historyActiveUser == messageUser && this.historyList.length) {
+      this.historyList[this.historyList.length - 1].conversation.push({
+        messageUser: messageUser['username'],
+        message: message,
+      });
     } else {
       this.historyActiveUser = messageUser;
       let hist = new History();
