@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.activeChat = null; // Initialize to a default value
     this.userService.activeChat.subscribe((res: UserService['singleUser']) => {
       this.activeChat = res;
     });

@@ -6,4 +6,4 @@
   (detailEmit)="openDetail($event)"
 ></app-middle-part>
 <br /><br />
-<app-right-part *ngIf="activeChat"></app-right-part>
+<app-right-part *ngIf="activeChat !== undefined && activeChat"></app-right-part>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class RightPartComponent implements OnInit {
   text: string;
   user: UserService['singleUser'];
+  private subscription: Subscription;
 
   constructor(
     private router: Router,
@@ -19,9 +21,15 @@ export class RightPartComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.activeChat.subscribe((res: UserService['singleUser']) => {
-      this.user = res;
-    });
+    this.subscription = this.userService.activeChat.subscribe(
+      (res: UserService['singleUser']) => {
+        this.user = res;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   formSubmit() {
