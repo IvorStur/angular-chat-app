@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { NONE_TYPE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -48,6 +49,11 @@ export class UserService {
   private click = new Subject<number>();
   click$ = this.click.asObservable();
 
+  postData(text: string) {
+    const body = { text: text };
+    return this.http.post('https://httpbin.org/post', body);
+  }
+
   beginChat(user: allUsers) {
     this.activeChat.next(user);
   }
@@ -55,7 +61,7 @@ export class UserService {
   historyMessage(messageUser: allUsers, message: string) {
     if (this.historyActiveUser == messageUser && this.historyList.length) {
       this.historyList[this.historyList.length - 1].conversation.push({
-        messageUser: messageUser['username'],
+        messageUser: 'you',
         message: message,
       });
     } else {
@@ -65,13 +71,39 @@ export class UserService {
       hist.conversation = [];
 
       hist.conversation.push({
-        messageUser: messageUser['username'],
+        messageUser: 'you',
         message: message,
       });
       this.historyList.push(hist);
     }
+    this.postData(message).subscribe(
+      (response) => {
+        this.historyList[this.historyList.length - 1].conversation.push({
+          messageUser: messageUser['username'],
+          message: this.getA(response['json']['text'].length).concat(
+            String(response['origin'][response['origin'].length - 1])
+          ),
+        });
+        console.log(this.historyList);
+        // console.log(response['json']['text'].length);
+        // console.log(response["origin"][response["origin"].length - 1]);
+        // console.log(response);
+      },
+      (error) => {
+        console.error(error); // Handle errors
+      }
+    );
+
     console.log(this.historyList);
   }
+
+  getA(num: number): string {
+    return "A".repeat(num);
+  }
+
+  // addResponseToHistory() {
+
+  // }
 
   addSingleUser(user: allUsers) {
     this.singleUser = user;
@@ -110,5 +142,5 @@ export class UserService {
     return this.user;
   }
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 }
