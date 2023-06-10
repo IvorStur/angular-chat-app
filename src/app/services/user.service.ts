@@ -44,6 +44,8 @@ export class UserService {
   testUser: Subject<allUsers> = new Subject<allUsers>();
   activeChat: Subject<allUsers> = new Subject<allUsers>();
   historyList: History[] = [];
+  historyListSubject: Subject<History[]> = new Subject<History[]>()
+
   historyActiveUser: allUsers;
 
   private click = new Subject<number>();
@@ -76,6 +78,8 @@ export class UserService {
       });
       this.historyList.push(hist);
     }
+    this.historyListSubject.next(this.historyList);
+    
     this.postData(message).subscribe(
       (response) => {
         this.historyList[this.historyList.length - 1].conversation.push({
@@ -84,7 +88,7 @@ export class UserService {
             String(response['origin'][response['origin'].length - 1])
           ),
         });
-        console.log(this.historyList);
+        // console.log(this.historyList);
         // console.log(response['json']['text'].length);
         // console.log(response["origin"][response["origin"].length - 1]);
         // console.log(response);
@@ -94,7 +98,7 @@ export class UserService {
       }
     );
 
-    console.log(this.historyList);
+    this.historyListSubject.next(this.historyList);
   }
 
   getA(num: number): string {
