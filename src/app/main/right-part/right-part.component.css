@@ -1,0 +1,19 @@
+.right-part-container {
+  float: right;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.right-part-container > div {
+  margin-bottom: 10px;
+}
+
+.right-part-container input[type='text'] {
+  width: 100%;
+}
+
+.right-part-container button {
+  width: 100%;
+}

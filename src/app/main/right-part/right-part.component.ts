@@ -12,6 +12,8 @@ import { UserService } from '../../services/user.service';
 export class RightPartComponent implements OnInit {
   text: string;
   user: UserService['singleUser'];
+  history: UserService['historyList'];
+  lastHistory: UserService['lastHistory'];
   private subscription: Subscription;
 
   constructor(
@@ -26,6 +28,17 @@ export class RightPartComponent implements OnInit {
         this.user = res;
       }
     );
+
+    this.userService.historyListSubject.subscribe(
+      (res: UserService['historyList']) => {
+        this.history = res;
+        this.lastHistory = res[res.length - 1];
+      }
+    );
+  }
+
+  clearChat() {
+    this.lastHistory.conversation = [];
   }
 
   ngOnDestroy() {

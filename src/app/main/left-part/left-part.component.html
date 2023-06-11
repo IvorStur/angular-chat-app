@@ -1,9 +1,13 @@
-<div *ngFor="let user of allUsers; let i = index">
-  <div (click)="toggle[i] = !toggle[i]">
-    {{ user.firstName }}
-    {{ user.lastName }}
-    {{ user.email }}
-    <button *ngIf="toggle[i]" (click)="detail(user)">Zobraz detail</button>
-    <button *ngIf="toggle[i]" (click)="chat(user)">Začni chat</button>
+<div class="left-part-container">
+  <div *ngFor="let user of allUsers; let i = index" class="user-item" (click)="toggle[i] = !toggle[i]">
+    <div class="user-details">
+      {{ user.firstName }}
+      {{ user.lastName }}
+      {{ user.email }}
+    </div>
+    <div class="button-container" *ngIf="toggle[i]">
+      <button (click)="detail(user)">Zobraz detail</button>
+      <button (click)="chat(user)">Začni chat</button>
+    </div>
   </div>
 </div>

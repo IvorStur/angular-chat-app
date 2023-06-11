@@ -44,7 +44,9 @@ export class UserService {
   testUser: Subject<allUsers> = new Subject<allUsers>();
   activeChat: Subject<allUsers> = new Subject<allUsers>();
   historyList: History[] = [];
+  lastHistory: History;
   historyListSubject: Subject<History[]> = new Subject<History[]>()
+  // clearRightPartChat: Subject<>() = 
 
   historyActiveUser: allUsers;
 

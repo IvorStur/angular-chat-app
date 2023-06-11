@@ -1,7 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from '../services/student.service';
 import { UserService } from '../services/user.service';
+import { RightPartComponent } from './right-part/right-part.component';
 
 @Component({
   selector: 'app-main',
@@ -13,6 +14,7 @@ export class MainComponent implements OnInit {
   user: UserService['user'];
   allUsers: UserService['allUsers'];
   activeChat: UserService['singleUser'];
+  @ViewChild('rightPartComponent') child:RightPartComponent;
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
@@ -39,6 +41,7 @@ export class MainComponent implements OnInit {
     this.activeChat = null; // Initialize to a default value
     this.userService.activeChat.subscribe((res: UserService['singleUser']) => {
       this.activeChat = res;
+      this.child.clearChat();
     });
   }
 }

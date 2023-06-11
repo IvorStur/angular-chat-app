@@ -4,6 +4,9 @@
 <app-middle-part
   [detail]="detail"
   (detailEmit)="openDetail($event)"
+  class="middle-part"
 ></app-middle-part>
 <br /><br />
-<app-right-part *ngIf="activeChat !== undefined && activeChat"></app-right-part>
+<app-right-part *ngIf="activeChat !== undefined && activeChat">
+  rith part
+</app-right-part>

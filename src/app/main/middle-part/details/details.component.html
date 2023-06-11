@@ -1,8 +1,10 @@
-<!-- details component <br> -->
-<img src="{{ user['image'] }}" alt="">
-<div *ngFor="let property of properties">
-  {{ user[property] }}
+<div class="details-container">
+  <!-- details component <br> -->
+  <img src="{{ user['image'] }}" alt="">
+  <div *ngFor="let property of properties">
+    {{ user[property] }}
+  </div>
+  {{ gender }}<br>
+  {{ country }}<br>
+  <button class="btn-default" (click)="close()">Zavriet</button>
 </div>
-{{ gender }}<br>
-{{ country }}<br>
-<button (click)="close()">Zavriet</button>
