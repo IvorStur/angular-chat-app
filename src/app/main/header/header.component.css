@@ -1,0 +1,16 @@
+header {
+  background-color: #45a049;
+  padding: 10px;
+}
+nav {
+  float: left;
+}
+
+button {
+  margin-left: 30%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: gray;
+  padding: 7px;
+}

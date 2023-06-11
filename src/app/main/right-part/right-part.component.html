@@ -2,16 +2,14 @@
   {{ user['firstName'] }}
   {{ user['lastName'] }}
 </div>
-<form (ngSubmit)="formSubmit()" class="d-inline">
-  <div class="form-group">
-    <label for="fname"></label>
-    <input
-      type="text"
-      name="text"
-      id="text"
-      class="form-control"
-      [(ngModel)]="text"
-    />
-  </div>
-  <button type="submit" class="btn btn-primary">Send</button>
-</form>
+
+<input
+  type="text"
+  name="text"
+  id="text"
+  class="form-control"
+  [(ngModel)]="text"
+/>
+
+<button type="submit" class="btn btn-primary" (click)="formSubmit()">Send</button>
+

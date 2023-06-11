@@ -1,2 +1,6 @@
-<app-details *ngIf="detail" (detailEmit)="openDetail($event)"></app-details>
-<app-history *ngIf="!detail"></app-history>
+<app-details *ngIf="detail; else elseBlock" (detailEmit)="openDetail($event)"></app-details>
+<ng-template #elseBlock>
+  <app-history></app-history>
+</ng-template>
+
+<!-- *ngIf="!detail" -->
