@@ -29,6 +29,11 @@ export class RightPartComponent implements OnInit {
       }
     );
 
+    this.userService.clearRightPartChat.subscribe(() => {
+      this.clearChat();
+      // this.child.clearChat();
+    });
+
     this.userService.historyListSubject.subscribe(
       (res: UserService['historyList']) => {
         this.history = res;

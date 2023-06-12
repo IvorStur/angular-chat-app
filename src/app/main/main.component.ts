@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
     this.activeChat = null; // Initialize to a default value
     this.userService.activeChat.subscribe((res: UserService['singleUser']) => {
       this.activeChat = res;
-      this.child.clearChat();
+      // this.child.clearChat();
     });
   }
 }

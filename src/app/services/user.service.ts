@@ -45,8 +45,8 @@ export class UserService {
   activeChat: Subject<allUsers> = new Subject<allUsers>();
   historyList: History[] = [];
   lastHistory: History;
-  historyListSubject: Subject<History[]> = new Subject<History[]>()
-  // clearRightPartChat: Subject<>() = 
+  historyListSubject: Subject<History[]> = new Subject<History[]>();
+  clearRightPartChat: Subject<void> = new Subject<void>();
 
   historyActiveUser: allUsers;
 
@@ -60,6 +60,7 @@ export class UserService {
 
   beginChat(user: allUsers) {
     this.activeChat.next(user);
+    this.clearRightPartChat.next();
   }
 
   historyMessage(messageUser: allUsers, message: string) {
@@ -81,7 +82,7 @@ export class UserService {
       this.historyList.push(hist);
     }
     this.historyListSubject.next(this.historyList);
-    
+
     this.postData(message).subscribe(
       (response) => {
         this.historyList[this.historyList.length - 1].conversation.push({
@@ -104,7 +105,7 @@ export class UserService {
   }
 
   getA(num: number): string {
-    return "A".repeat(num);
+    return 'A'.repeat(num);
   }
 
   // addResponseToHistory() {
