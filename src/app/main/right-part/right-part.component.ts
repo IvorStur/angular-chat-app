@@ -15,6 +15,7 @@ export class RightPartComponent implements OnInit {
   history: UserService['historyList'];
   lastHistory: UserService['lastHistory'];
   private subscription: Subscription;
+  clear: boolean = false;
 
   constructor(
     private router: Router,
@@ -37,13 +38,13 @@ export class RightPartComponent implements OnInit {
     this.userService.historyListSubject.subscribe(
       (res: UserService['historyList']) => {
         this.history = res;
-        this.lastHistory = res[res.length - 1];
+        this.lastHistory = this.history[res.length - 1];
       }
     );
   }
 
   clearChat() {
-    this.lastHistory.conversation = [];
+    this.clear = true;
   }
 
   ngOnDestroy() {
@@ -51,6 +52,7 @@ export class RightPartComponent implements OnInit {
   }
 
   formSubmit() {
+    this.clear = false;
     this.userService.historyMessage(this.user, this.text);
   }
 }

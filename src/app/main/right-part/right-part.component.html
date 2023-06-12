@@ -3,7 +3,7 @@
     {{ user['firstName'] }}
     {{ user['lastName'] }}
   </div>
-  <div *ngIf="lastHistory">
+  <div *ngIf="lastHistory && !clear">
   
     <div *ngFor="let conv of lastHistory.conversation">
       {{ conv.messageUser }}

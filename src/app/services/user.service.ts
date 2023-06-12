@@ -79,8 +79,12 @@ export class UserService {
         messageUser: 'you',
         message: message,
       });
+      // console.log('historyList pushed');
+      // console.log(this.historyList);
       this.historyList.push(hist);
     }
+    // console.log('historyList pushed async');
+    // console.log(this.historyList);
     this.historyListSubject.next(this.historyList);
 
     this.postData(message).subscribe(
@@ -91,6 +95,7 @@ export class UserService {
             String(response['origin'][response['origin'].length - 1])
           ),
         });
+        // console.log('in post data');
         // console.log(this.historyList);
         // console.log(response['json']['text'].length);
         // console.log(response["origin"][response["origin"].length - 1]);
@@ -100,7 +105,8 @@ export class UserService {
         console.error(error); // Handle errors
       }
     );
-
+    // console.log('historyList pushed async');
+    // console.log(this.historyList);
     this.historyListSubject.next(this.historyList);
   }
 
