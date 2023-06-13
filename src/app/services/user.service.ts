@@ -113,6 +113,7 @@ export class UserService {
     // console.log('historyList pushed async');
     // console.log(this.historyList);
     this.historyListSubject.next(this.historyList);
+    localStorage.setItem('history', JSON.stringify(this.historyList)); //in history
   }
 
   getA(num: number): string {
