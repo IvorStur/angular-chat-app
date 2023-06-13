@@ -1,0 +1,38 @@
+.history-container {
+  margin-top: 20px;
+}
+
+.history-container > div {
+  margin-bottom: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.message {
+  margin-left: 10px;
+}
+
+/* Optional styles to enhance the appearance */
+.history-container {
+  background-color: #45a049;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.history-container > div {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.username {
+  color: #333;
+}
+
+.message {
+  color: #555;
+}

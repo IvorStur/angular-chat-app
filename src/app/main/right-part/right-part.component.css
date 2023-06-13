@@ -17,3 +17,23 @@
 .right-part-container button {
   width: 100%;
 }
+
+.username {
+  border: 3px solid #45a049;
+  border-radius: 5px;
+}
+
+/* Buttons */
+.button {
+  margin-top: 5px;
+  background-color: #4caf50;
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}

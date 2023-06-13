@@ -1,7 +1,7 @@
-<div *ngFor="let his of history">
+<div class="history-container" *ngFor="let his of history">
   {{ his.user.username }}
   <div *ngFor="let conv of his.conversation">
-    {{ conv.messageUser }}
+    {{ conv.messageUser }}:
     {{ conv.message }}
   </div>
 </div>
