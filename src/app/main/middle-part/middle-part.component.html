@@ -1,9 +1,7 @@
 <div class="middle-part-container">
-  <app-details
-    *ngIf="detail; else elseBlock"
-    (detailEmit)="openDetail($event)"
-  ></app-details>
+  <app-details *ngIf="detail; else elseBlock"></app-details>
   <ng-template #elseBlock>
     <app-history></app-history>
   </ng-template>
 </div>
+<!-- (detailEmit)="openDetail($event)" -->

@@ -4,22 +4,24 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-middle-part',
   templateUrl: './middle-part.component.html',
-  styleUrls: ['./middle-part.component.css']
+  styleUrls: ['./middle-part.component.css'],
 })
 export class MiddlePartComponent implements OnInit {
-
-  @Input() detail: boolean;
-  @Output() detailEmit = new EventEmitter<boolean>();
+  // @Input()
+  detail: boolean = false;
+  // @Output() detailEmit = new EventEmitter<boolean>();
 
   openDetail(open: boolean) {
     // console.log("middle toggled")
     // console.log("opend details")
-    this.detailEmit.emit(open);
+    // this.detailEmit.emit(open);
   }
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
+    this.userService.historyDetails.subscribe(() => {
+      this.detail = !this.detail;
+    });
   }
-
 }

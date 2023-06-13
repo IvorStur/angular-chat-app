@@ -24,7 +24,8 @@ export class LeftPartComponent implements OnInit {
 
   detail(user: UserService['singleUser']) {
     this.userService.addSingleUser(user);
-    this.detailEmit.emit(true);
+    // this.detailEmit.emit(true);
+    this.userService.detailEmit();
   }
 
   chat(user: UserService['singleUser']) {

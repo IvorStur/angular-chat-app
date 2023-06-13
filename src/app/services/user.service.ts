@@ -47,6 +47,7 @@ export class UserService {
   lastHistory: History;
   historyListSubject: Subject<History[]> = new Subject<History[]>();
   clearRightPartChat: Subject<void> = new Subject<void>();
+  historyDetails: Subject<void> = new Subject<void>();
 
   historyActiveUser: allUsers;
 
@@ -56,6 +57,10 @@ export class UserService {
   postData(text: string) {
     const body = { text: text };
     return this.http.post('https://httpbin.org/post', body);
+  }
+
+  detailEmit() {
+    this.historyDetails.next();
   }
 
   beginChat(user: allUsers) {

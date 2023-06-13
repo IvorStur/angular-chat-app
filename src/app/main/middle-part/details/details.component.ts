@@ -32,7 +32,8 @@ export class DetailsComponent implements OnInit {
 
   close() {
     // console.log('detail closed')
-    this.detailEmit.emit(false);
+    // this.detailEmit.emit(false);
+    this.userService.detailEmit();
   }
 
   ngOnInit() {

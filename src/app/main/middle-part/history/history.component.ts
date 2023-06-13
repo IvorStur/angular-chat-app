@@ -8,13 +8,24 @@ import { UserService } from '../../../services/user.service';
 })
 export class HistoryComponent implements OnInit {
 
-  history: UserService["historyList"]
+  history: UserService["historyList"];
+  lastKnownHistory: UserService["historyList"];
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    const savedHistory = localStorage.getItem('history');
+    if (savedHistory) {
+      this.lastKnownHistory = JSON.parse(savedHistory);
+    }
+
     this.userService.historyListSubject.subscribe((res: UserService["historyList"]) => {
       this.history = res;
+      this.saveHistoryToLocalStorage();
     });
   }
 
+  saveHistoryToLocalStorage() {
+    localStorage.setItem('history', JSON.stringify(this.history));
+  }
 }

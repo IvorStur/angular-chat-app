@@ -1,7 +1,19 @@
-<div class="history-container" *ngFor="let his of history">
-  {{ his.user.username }}
-  <div *ngFor="let conv of his.conversation">
-    {{ conv.messageUser }}:
-    {{ conv.message }}
+<ng-container *ngIf="history; else elseBlock">
+  <div class="history-container" *ngFor="let his of history">
+    {{ his.user.username }}
+    <div *ngFor="let conv of his.conversation">
+      {{ conv.messageUser }}:
+      {{ conv.message }}
+    </div>
   </div>
-</div>
+</ng-container>
+
+<ng-template #elseBlock>
+  <div class="history-container" *ngFor="let his of lastKnownHistory">
+    {{ his.user.username }}
+    <div *ngFor="let conv of his.conversation">
+      {{ conv.messageUser }}:
+      {{ conv.message }}
+    </div>
+  </div>
+</ng-template>
