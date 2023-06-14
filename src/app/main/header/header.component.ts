@@ -36,8 +36,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.setItem('logged', 'flase');
+    
     localStorage.removeItem('history');
-    this.router.navigate(['one']);
+    this.router.navigate(['logout']);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-logout',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private userService: UserService) { }
+
+  resChar: number;
+
+  login() {
+    window.location.href="https://angular-ivy-plfjdy.stackblitz.io";
+    // this.router.navigate(["one"])
+  }
 
   ngOnInit() {
+    if (!localStorage.getItem("logged")) {
+      this.router.navigate(["one"])
+    }
+    localStorage.setItem('logged', 'flase');
+    this.resChar = this.userService.getResChar();
   }
 
 }
