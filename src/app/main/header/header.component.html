@@ -2,10 +2,10 @@
   <nav>
     {{ user.fName }}
     {{ user.lName }}
-    Clicks: {{ user.clicks }}
-    {{ user.logInTime | date:'medium' }}
+    Clicks: {{ user.clicks }} Logged in:
+    {{ user.logInTime | date: 'medium' }} Characters written:
+    {{ userChar }} Chats started: {{ chatsStarted }}
     <!-- {{ user.logInTime.toTimeString().split(' ')[0] }} -->
-    
   </nav>
   <button (click)="logout()">Logout</button>
 </header>

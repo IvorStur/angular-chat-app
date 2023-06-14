@@ -20,6 +20,7 @@ interface User {
 export class HeaderComponent implements OnInit {
   @Input() user: User;
   userChar: number;
+  chatsStarted: number;
 
   constructor(private router: Router, private userService: UserService) {
     // this.user = userService.getUser();
@@ -29,6 +30,9 @@ export class HeaderComponent implements OnInit {
     this.userService.userCharSubject.subscribe((res: number) => {
       this.userChar = res;
     });
+    this.userService.chatsStartedSubject.subscribe((res: number) => {
+      this.chatsStarted = res;
+    })
   }
 
   logout() {

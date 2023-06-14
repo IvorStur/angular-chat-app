@@ -52,6 +52,8 @@ export class UserService {
   userCharSubject: Subject<number> = new Subject<number>();
   resChar: number = 0;
   resCharSubject: Subject<number> = new Subject<number>();
+  chatsStarted: number = 0;
+  chatsStartedSubject: Subject<number> = new Subject<number>();
 
   historyActiveUser: allUsers;
 
@@ -66,7 +68,7 @@ export class UserService {
   // in right part submit
   addUserChar(lenght: number) {
     this.userChar = this.userChar + lenght;
-    this.userCharSubject.next(this.userChar)
+    this.userCharSubject.next(this.userChar);
   }
   // in getA service
   addResChar(lenght: number) {
@@ -89,6 +91,8 @@ export class UserService {
         message: message,
       });
     } else {
+      this.chatsStarted++;
+      this.chatsStartedSubject.next(this.chatsStarted);
       this.historyActiveUser = messageUser;
       let hist = new History();
       hist.user = messageUser;
@@ -131,7 +135,7 @@ export class UserService {
   }
 
   getA(num: number): string {
-    this.addResChar(num + 1)
+    this.addResChar(num + 1);
     return 'A'.repeat(num);
   }
 
