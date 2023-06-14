@@ -11,13 +11,12 @@ import { UserService } from './services/user.service';
 export class AppComponent {
   constructor(private router: Router, private userService: UserService) {}
 
-  
-
   name = 'Angular ' + VERSION.major;
 
   ngOnInit() {
     localStorage.setItem('logged', 'false');
     localStorage.setItem('detail', 'false');
+    localStorage.removeItem('history');
     // localStorage.setItem('id', '0');
     // this.studentService.addStudent({
     //   id: 0,
@@ -42,10 +41,8 @@ export class AppComponent {
 
   clickGlobal() {
     try {
-
       this.userService.globalClick();
     } catch {}
-    
   }
   loginSucces() {
     this.router.navigate(['two', 365]);
