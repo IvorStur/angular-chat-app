@@ -1,5 +1,9 @@
 .details-container {
   margin-top: 20px;
+  border: 6px solid #45a049;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .details-container img {
