@@ -125,7 +125,11 @@ export class UserService {
         // console.log(response);
       },
       (error) => {
-        console.error(error); // Handle errors
+        this.historyList[this.historyList.length - 1].conversation.push({
+          messageUser: 'error',
+          message: error['message'],
+        });
+        console.error(error);
       }
     );
     // console.log('historyList pushed async');
