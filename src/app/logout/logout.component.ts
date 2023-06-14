@@ -12,6 +12,7 @@ export class LogoutComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   resChar: number;
+  loggedInTime: string;
 
   login() {
     window.location.href="https://angular-ivy-plfjdy.stackblitz.io";
@@ -23,6 +24,7 @@ export class LogoutComponent implements OnInit {
       this.router.navigate(["one"])
     }
     localStorage.setItem('logged', 'flase');
+    this.loggedInTime = this.userService.getLoggedInTime().toTimeString().split(' ')[0]
     this.resChar = this.userService.getResChar();
   }
 

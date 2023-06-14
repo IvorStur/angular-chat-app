@@ -13,6 +13,6 @@ export class GuardGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return JSON.parse(localStorage.getItem('logged'));
-    // return true
+    // return true;
   }
 }

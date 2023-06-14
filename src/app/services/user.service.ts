@@ -54,6 +54,7 @@ export class UserService {
   resCharSubject: Subject<number> = new Subject<number>();
   chatsStarted: number = 0;
   chatsStartedSubject: Subject<number> = new Subject<number>();
+  loggedIn: Date;
 
   historyActiveUser: allUsers;
 
@@ -63,6 +64,10 @@ export class UserService {
   postData(text: string) {
     const body = { text: text };
     return this.http.post('https://httpbin.org/post', body);
+  }
+
+  getLoggedInTime() {
+    return new Date(Date.now() - this.loggedIn.getTime() - 3600000);
   }
 
   // in right part submit
@@ -76,7 +81,7 @@ export class UserService {
   }
 
   getResChar() {
-    return this.resChar
+    return this.resChar;
   }
 
   detailEmit() {
@@ -195,6 +200,7 @@ export class UserService {
   }
 
   addUser(user: User) {
+    this.loggedIn = user.logInTime;
     this.user = user;
   }
 
