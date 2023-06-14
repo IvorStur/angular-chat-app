@@ -75,6 +75,10 @@ export class UserService {
     this.resChar = this.resChar + lenght;
   }
 
+  getResChar() {
+    return this.resChar
+  }
+
   detailEmit() {
     this.historyDetails.next();
   }
@@ -164,6 +168,24 @@ export class UserService {
     this.allUsers.push(user);
   }
 
+  // user: User;
+  // allUsers: allUsers[] = [];
+  // singleUser: allUsers;
+  // testUser: Subject<allUsers> = new Subject<allUsers>();
+  // activeChat: Subject<allUsers> = new Subject<allUsers>();
+  // historyList: History[] = [];
+  // lastHistory: History;
+  // historyListSubject: Subject<History[]> = new Subject<History[]>();
+  // clearRightPartChat: Subject<void> = new Subject<void>();
+  // historyDetails: Subject<void> = new Subject<void>();
+  // userChar: number = 0;
+  // userCharSubject: Subject<number> = new Subject<number>();
+  // resChar: number = 0;
+  // resCharSubject: Subject<number> = new Subject<number>();
+  // chatsStarted: number = 0;
+  // chatsStartedSubject: Subject<number> = new Subject<number>();
+
+  // historyActiveUser: allUsers;
   getAllUsers() {
     return this.allUsers;
   }

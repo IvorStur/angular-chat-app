@@ -17,6 +17,7 @@ import { MiddlePartComponent } from './main/middle-part/middle-part.component';
 import { RightPartComponent } from './main/right-part/right-part.component';
 import { DetailsComponent } from './main/middle-part/details/details.component';
 import { HistoryComponent } from './main/middle-part/history/history.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, FormsModule, HttpClientModule],
@@ -30,7 +31,8 @@ import { HistoryComponent } from './main/middle-part/history/history.component';
     MiddlePartComponent,
     RightPartComponent,
     DetailsComponent,
-    HistoryComponent
+    HistoryComponent,
+    LogoutComponent
   ],
   bootstrap: [AppComponent],
   providers: [GuardGuard, StudentService, UserService],

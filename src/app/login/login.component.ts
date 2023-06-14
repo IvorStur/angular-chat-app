@@ -34,12 +34,14 @@ interface User {
 export class LoginComponent implements OnInit {
   @Output()
   touch = new EventEmitter();
+  resChar: number;
 
   constructor(private router: Router, private http: HttpClient, private userService: UserService) {
     userService.deleteAllUsers();
   }
 
   ngOnInit() {
+    this.resChar = this.userService.getResChar();
     this.loggedUser = null;
     this.allUser = null;
   }
