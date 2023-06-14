@@ -48,6 +48,10 @@ export class UserService {
   historyListSubject: Subject<History[]> = new Subject<History[]>();
   clearRightPartChat: Subject<void> = new Subject<void>();
   historyDetails: Subject<void> = new Subject<void>();
+  userChar: number = 0;
+  userCharSubject: Subject<number> = new Subject<number>();
+  resChar: number = 0;
+  resCharSubject: Subject<number> = new Subject<number>();
 
   historyActiveUser: allUsers;
 
@@ -57,6 +61,16 @@ export class UserService {
   postData(text: string) {
     const body = { text: text };
     return this.http.post('https://httpbin.org/post', body);
+  }
+
+  // in right part submit
+  addUserChar(lenght: number) {
+    this.userChar = this.userChar + lenght;
+    this.userCharSubject.next(this.userChar)
+  }
+  // in getA service
+  addResChar(lenght: number) {
+    this.resChar = this.resChar + lenght;
   }
 
   detailEmit() {
@@ -117,6 +131,7 @@ export class UserService {
   }
 
   getA(num: number): string {
+    this.addResChar(num + 1)
     return 'A'.repeat(num);
   }
 

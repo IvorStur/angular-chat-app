@@ -53,6 +53,7 @@ export class RightPartComponent implements OnInit {
 
   formSubmit() {
     this.clear = false;
+    this.userService.addUserChar(this.text.length)
     this.userService.historyMessage(this.user, this.text);
   }
 }

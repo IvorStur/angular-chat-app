@@ -1,6 +1,7 @@
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 interface User {
   fName: string;
@@ -18,12 +19,17 @@ interface User {
 })
 export class HeaderComponent implements OnInit {
   @Input() user: User;
+  userChar: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
     // this.user = userService.getUser();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.userCharSubject.subscribe((res: number) => {
+      this.userChar = res;
+    });
+  }
 
   logout() {
     localStorage.setItem('logged', 'flase');

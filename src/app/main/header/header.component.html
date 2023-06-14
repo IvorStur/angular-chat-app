@@ -3,7 +3,8 @@
     {{ user.fName }}
     {{ user.lName }}
     Clicks: {{ user.clicks }}
-    {{ user.logInTime.toTimeString().split(' ')[0] }}
+    {{ user.logInTime | date:'medium' }}
+    <!-- {{ user.logInTime.toTimeString().split(' ')[0] }} -->
     
   </nav>
   <button (click)="logout()">Logout</button>
