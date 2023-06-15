@@ -6,6 +6,11 @@
   border-radius: 4px;
 }
 
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
 .right-part-container > div {
   margin-bottom: 10px;
 }
