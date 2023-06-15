@@ -2,9 +2,9 @@
   <nav>
     {{ user.fName }}
     {{ user.lName }}
-    Clicks: {{ user.clicks }} Logged in:
-    {{ user.logInTime | date: 'medium' }} Characters written:
-    {{ userChar }} Chats started: {{ chatsStarted }}
+    &nbsp;&nbsp; Počet klikov: {{ user.clicks }}&nbsp;&nbsp; Logged in:
+    {{ user.logInTime | date: 'medium' }}&nbsp;&nbsp; Počet charakterov:
+    {{ userChar }}&nbsp;&nbsp; Počet začatých chatov: {{ chatsStarted }}
     <!-- {{ user.logInTime.toTimeString().split(' ')[0] }} -->
   </nav>
   <button (click)="logout()">Logout</button>
