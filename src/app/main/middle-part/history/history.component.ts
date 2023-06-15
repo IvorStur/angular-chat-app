@@ -4,14 +4,13 @@ import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css']
+  styleUrls: ['./history.component.css'],
 })
 export class HistoryComponent implements OnInit {
+  history: UserService['historyList'];
+  lastKnownHistory: UserService['historyList'];
 
-  history: UserService["historyList"];
-  lastKnownHistory: UserService["historyList"];
-
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     const savedHistory = localStorage.getItem('history');
@@ -19,10 +18,13 @@ export class HistoryComponent implements OnInit {
       this.lastKnownHistory = JSON.parse(savedHistory);
     }
 
-    this.userService.historyListSubject.subscribe((res: UserService["historyList"]) => {
-      this.history = res;
-      this.saveHistoryToLocalStorage();
-    });
+    this.userService.historyListSubject.subscribe(
+      (res: UserService['historyList']) => {
+        this.history = res;
+        this.saveHistoryToLocalStorage();
+      }
+    );
+    this.userService.updateHistory();
   }
 
   saveHistoryToLocalStorage() {

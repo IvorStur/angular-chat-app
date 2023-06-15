@@ -93,6 +93,10 @@ export class UserService {
     this.clearRightPartChat.next();
   }
 
+  updateHistory() {
+    this.historyListSubject.next(this.historyList);
+  }
+
   historyMessage(messageUser: allUsers, message: string) {
     if (this.historyActiveUser == messageUser && this.historyList.length) {
       this.historyList[this.historyList.length - 1].conversation.push({
