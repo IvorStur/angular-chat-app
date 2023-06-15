@@ -1,6 +1,6 @@
 /* Container for user list */
 .left-part-container {
-  width: 35%;
+  width: 30%;
   float: left;
 }
 
@@ -29,7 +29,7 @@
 
 .button-container button {
   margin-top: 5px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 7px;
   border: none;

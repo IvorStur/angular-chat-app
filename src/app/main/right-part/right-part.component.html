@@ -10,15 +10,16 @@
     </div>
   </div>
 
-  <input
-    type="text"
-    name="text"
-    id="text"
-    class="form-control"
-    [(ngModel)]="text"
-  />
+  <form (ngSubmit)="formSubmit()" autocomplete="off">
+    <input
+      autocomplete="false"
+      type="text"
+      name="text"
+      id="text"
+      class="form-control"
+      [(ngModel)]="text"
+    />
 
-  <button type="submit" class="button" (click)="formSubmit()">
-    Send
-  </button>
+    <button type="submit" class="button">Send</button>
+  </form>
 </div>
