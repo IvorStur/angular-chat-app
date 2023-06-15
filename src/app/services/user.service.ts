@@ -31,7 +31,7 @@ interface allUsers {
 
 class History {
   user: allUsers;
-  conversation: { messageUser: string; message: string }[];
+  conversation: { messageUser: string; message: string; messageTime: string }[];
 }
 
 @Injectable({
@@ -97,6 +97,7 @@ export class UserService {
     if (this.historyActiveUser == messageUser && this.historyList.length) {
       this.historyList[this.historyList.length - 1].conversation.push({
         messageUser: 'you',
+        messageTime: new Date().toTimeString().split(' ')[0],
         message: message,
       });
     } else {
@@ -109,6 +110,7 @@ export class UserService {
 
       hist.conversation.push({
         messageUser: 'you',
+        messageTime: new Date().toTimeString().split(' ')[0],
         message: message,
       });
       // console.log('historyList pushed');
@@ -123,6 +125,7 @@ export class UserService {
       (response) => {
         this.historyList[this.historyList.length - 1].conversation.push({
           messageUser: messageUser['username'],
+          messageTime: new Date().toTimeString().split(' ')[0],
           message: this.getA(response['json']['text'].length).concat(
             String(response['origin'][response['origin'].length - 1])
           ),
@@ -136,6 +139,7 @@ export class UserService {
       (error) => {
         this.historyList[this.historyList.length - 1].conversation.push({
           messageUser: 'error',
+          messageTime: new Date().toTimeString().split(' ')[0],
           message: error['message'],
         });
         console.error(error);

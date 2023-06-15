@@ -2,8 +2,8 @@
   <div class="history-container" *ngFor="let his of history">
     {{ his.user.username }}
     <div *ngFor="let conv of his.conversation">
-      {{ conv.messageUser }}:
-      {{ conv.message }}
+      {{ conv.messageUser }}: {{ conv.message }}<br />
+      &nbsp; {{ conv.messageTime }}
     </div>
   </div>
 </ng-container>
@@ -14,6 +14,7 @@
     <div *ngFor="let conv of his.conversation">
       {{ conv.messageUser }}:
       {{ conv.message }}
+      &nbsp; {{ conv.messageTime }}
     </div>
   </div>
 </ng-template>
